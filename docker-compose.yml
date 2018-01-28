@@ -9,7 +9,7 @@ services:
     volumes:
       - ./src:/src
       - ./config/nginx:/etc/nginx/conf.d
-      - ../static:/static
+      - ./static:/static
     depends_on:
       - backend
   backend:
@@ -19,17 +19,18 @@ services:
       dockerfile: ./config/backend/Dockerfile
     container_name: backend
     environment:
-      - DJANGO_SETTINGS_MODULE=sesamo.settings.production
+      - DJANGO_SETTINGS_MODULE=taller_docker.settings.prod
     entrypoint:
       - /entrypoint.sh
     depends_on:
       - db
     volumes:
       - ./src:/src
-      - ../static:/static
+      - ./static:/static
     expose:
       - "8000"
   db:
+    container_name: db
     image: postgres:latest
     volumes:
-        - ../postgres-data:/var/lib/postgresql/data
+        - ./postgres-data:/var/lib/postgresql/data
