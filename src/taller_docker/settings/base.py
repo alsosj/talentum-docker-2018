@@ -49,7 +49,7 @@ JENKINS_TASKS = (
 
 PROJECT_APPS = (
     'django.contrib.sessions',  # just to ensure that dotted apps test works
-    'blog',
+    'taller_docker.blog',
 )
 
 MIDDLEWARE = [
