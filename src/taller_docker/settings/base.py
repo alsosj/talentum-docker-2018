@@ -47,6 +47,11 @@ JENKINS_TASKS = (
     'django_jenkins.tasks.run_flake8',
 )
 
+PROJECT_APPS = (
+    'django.contrib.sessions',  # just to ensure that dotted apps test works
+    'blog',
+)
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
