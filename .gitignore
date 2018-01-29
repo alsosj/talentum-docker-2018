@@ -20,3 +20,4 @@ static/assets/bundles/main-bundle.js
 static/assets/bundles/main-sesamo.js
 src/webpack-stats.json
 postgres-data/
+jenkins_home/
