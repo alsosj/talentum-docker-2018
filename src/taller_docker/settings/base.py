@@ -29,29 +29,25 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-INSTALLED_APPS = [
+PROJECT_APPS = (
+    'django.contrib.sessions',  # just to ensure that dotted apps test works
+    'blog',
+)
+
+INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_jenkins',
-    'blog',
-]
+) + PROJECT_APPS
 
 JENKINS_TASKS = (
-    # 'django_jenkins.tasks.with_coverage',
-    'django_jenkins.tasks.django_tests',
     'django_jenkins.tasks.run_pylint',
     'django_jenkins.tasks.run_pep8',
     'django_jenkins.tasks.run_pyflakes',
     'django_jenkins.tasks.run_flake8',
-)
-
-PROJECT_APPS = (
-    'django.contrib.sessions',  # just to ensure that dotted apps test works
-    'blog',
 )
 
 MIDDLEWARE = [
@@ -138,3 +134,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, '..', 'blog', 'static'),
 ]
+
+PYLINT_LOAD_PLUGIN = (
+    'pylint_django',
+)
