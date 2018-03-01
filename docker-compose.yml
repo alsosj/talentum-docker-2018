@@ -36,6 +36,8 @@ services:
         - ./postgres-data:/var/lib/postgresql/data
   jenkins:
     container_name: jenkins
+    environment:
+      - DJANGO_SETTINGS_MODULE=taller_docker.settings.dev
     build:
       context: .
       dockerfile: ./config/jenkins/Dockerfile
