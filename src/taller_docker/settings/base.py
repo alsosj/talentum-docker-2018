@@ -49,7 +49,8 @@ JENKINS_TASKS = (
 
 PROJECT_APPS = (
     'django.contrib.sessions',  # just to ensure that dotted apps test works
-    'taller_docker.blog',
+    'taller_docker',
+    'blog',
 )
 
 MIDDLEWARE = [
@@ -134,5 +135,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'blog', 'static'),
+    os.path.join(BASE_DIR, '..', 'blog', 'static'),
 ]
