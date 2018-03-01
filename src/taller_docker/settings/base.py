@@ -41,6 +41,8 @@ INSTALLED_APPS = [
 ]
 
 JENKINS_TASKS = (
+    'django_jenkins.tasks.with_coverage',
+    'django_jenkins.tasks.django_tests',
     'django_jenkins.tasks.run_pylint',
     'django_jenkins.tasks.run_pep8',
     'django_jenkins.tasks.run_pyflakes',
@@ -49,7 +51,6 @@ JENKINS_TASKS = (
 
 PROJECT_APPS = (
     'django.contrib.sessions',  # just to ensure that dotted apps test works
-    'taller_docker',
     'blog',
 )
 
